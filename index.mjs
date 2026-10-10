@@ -21,14 +21,14 @@ const index = (req, res) => {
 
 const geoip = (req, res) => {
 	res.set({
-		'x-geoip-city': 'Orlando',
+		'x-geoip-city': 'North Myrtle Beach',
 		'x-geoip-country': 'US',
 		'x-geoip-country-name': 'United States',
-		'x-geoip-country-region': 'FL',
-		'x-geoip-country-region-name': 'Florida',
-		'x-geoip-latitude': '28.52135',
-		'x-geoip-longitude': '-81.41079',
-		'x-geoip-postal-code': '32789',
+		'x-geoip-country-region': 'SC',
+		'x-geoip-country-region-name': 'South Carolina',
+		'x-geoip-latitude': '33.816',
+		'x-geoip-longitude': '-78.6801',
+		'x-geoip-postal-code': '29582',
 		'x-geoip-time-zone': 'America/New_York',
 		'content-type': 'application/json',
 	});

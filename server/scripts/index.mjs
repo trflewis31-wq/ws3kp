@@ -25,6 +25,12 @@ const categories = [
 	'Postal', 'Populated Place',
 ];
 const category = categories.join(',');
+// used when nothing has been chosen or saved yet
+const DEFAULT_LOCATION = {
+	query: 'North Myrtle Beach, SC',
+	latLon: { lat: 33.816, lon: -78.6801 },
+};
+
 const TXT_ADDRESS_SELECTOR = '#txtAddress';
 const TOGGLE_FULL_SCREEN_SELECTOR = '#ToggleFullScreen';
 const BNT_GET_GPS_SELECTOR = '#btnGetGps';
@@ -87,8 +93,8 @@ const init = () => {
 	const loadFromParsed = parsedParameters.latLonQuery && parsedParameters.latLon;
 
 	// Auto load the parsed parameters and fall back to the previous query
-	const query = parsedParameters.latLonQuery ?? localStorage.getItem('latLonQuery');
-	const latLon = parsedParameters.latLon ?? localStorage.getItem('latLon');
+	const query = parsedParameters.latLonQuery ?? localStorage.getItem('latLonQuery') ?? DEFAULT_LOCATION.query;
+	const latLon = parsedParameters.latLon ?? localStorage.getItem('latLon') ?? JSON.stringify(DEFAULT_LOCATION.latLon);
 	const fromGPS = localStorage.getItem('latLonFromGPS') && !loadFromParsed;
 	if (query && latLon && !fromGPS) {
 		const txtAddress = document.querySelector(TXT_ADDRESS_SELECTOR);
