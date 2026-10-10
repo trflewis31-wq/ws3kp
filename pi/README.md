@@ -10,3 +10,6 @@ Tips for very slow Pis: in Chromium settings keep only the displays you want (un
 use 1280x720 output (`raspi-config` → Display), and set GPU memory to 128.
 
 Rebuild `pi/www` after code changes on a PC: `npm ci && npm run build && rm -rf pi/www && cp -r dist pi/www`.
+
+## No-install option
+`sh pi/run.sh` opens `pi/www/index.html` directly in Chromium kiosk mode (no web server needed).
